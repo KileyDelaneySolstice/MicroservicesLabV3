@@ -1,5 +1,6 @@
 package com.delaneykiley.stockservice.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,6 +12,7 @@ public class Stock {
     @Id
     private Integer id;
 
+    @Column(unique = true)
     private String name;
 
     public Stock() {}
