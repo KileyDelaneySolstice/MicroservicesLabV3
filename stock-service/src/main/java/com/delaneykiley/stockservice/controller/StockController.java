@@ -44,22 +44,15 @@ public class StockController {
         return stockRepository.save(stock);
     }
 
-////     removes a stock by id
-//    @RequestMapping(method = RequestMethod.DELETE)
-//    public String deleteById(@RequestBody Integer id) {
-//        stockRepository.deleteById(id);
-//        return "Stock with id " + id + " deleted successfully";
-//    }
-//
-//    // removes a stock by name
-//    @RequestMapping(method = RequestMethod.DELETE)
-//    public String deleteByName(@RequestBody String name) {
-//        stockRepository.deleteByName(name);
-//        return "Stock with name " + name + " deleted successfully";
-//    }
+    // deletes a stock by id
+    @GetMapping("/delete/{id}")
+    public String deleteById(@PathVariable Integer id) {
+        stockRepository.deleteById(id);
+        return "Stock with id " + id + " deleted successfully";
+    }
 
     // clears all stocks
-    @GetMapping("/none")
+    @GetMapping("/clear")
     public String clear() {
         stockRepository.deleteAll();
         return "All stocks deleted successfully";
